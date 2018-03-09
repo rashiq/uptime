@@ -27,4 +27,5 @@ Create a `config.json` to get started:
 ```
 
 You can specify a list of steps in `up` or `down`. For now it's just going to execute them and replace `$SERVICE` with the actual affected service.
- 
+
+You can set up a cron job to make this scrupt run every hour or so.
