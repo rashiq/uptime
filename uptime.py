@@ -4,6 +4,11 @@ import json
 import socket
 from subprocess import Popen
 from urlparse import urlparse
+try:
+    from subprocess import DEVNULL
+except ImportError:
+    import os
+    DEVNULL = open(os.devnull, 'wb')
 
 
 def run_check(services, down_actions, up_actions):
@@ -19,8 +24,9 @@ def run_check(services, down_actions, up_actions):
       action = action.replace("$SERVICE", service)
       Popen([action],
         shell=True,
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
+        stdin=None,
+        stdout=DEVNULL,
+        stderr=DEVNULL,
         close_fds=True
       )
 
