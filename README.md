@@ -30,4 +30,6 @@ You can specify a list of steps in `up` or `down`. For now it's just going to ex
 
 You can set up a cron job to make this script run every hour or so.
 
+```
 0 * * * * python /app/uptime/uptime.py
+```
