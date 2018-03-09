@@ -19,9 +19,8 @@ def run_check(services, down_actions, up_actions):
       action = action.replace("$SERVICE", service)
       Popen([action],
         shell=True,
-        stdin=None,
-        stdout=None,
-        stderr=None,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
         close_fds=True
       )
 
