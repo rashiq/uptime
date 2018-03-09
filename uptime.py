@@ -2,6 +2,7 @@ import sys
 import os
 import json
 import socket
+from subprocess import Popen
 from urlparse import urlparse
 
 
@@ -16,7 +17,13 @@ def run_check(services, down_actions, up_actions):
 
     for action in actions:
       action = action.replace("$SERVICE", service)
-      os.system(action)
+      Popen([action],
+        shell=True,
+        stdin=None,
+        stdout=None,
+        stderr=None,
+        close_fds=True
+      )
 
 
 def ping(url, port):
